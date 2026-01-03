@@ -577,3 +577,723 @@ a { text-decoration: none; color: inherit; transition: all 0.3s ease; }
   border: 1px solid #333; 
   box-shadow: 0 0 30px rgba(0,0,0,0.8);
 }
+
+/* --- PROGRAM DETAIL PAGES --- */
+
+.program-hero {
+  padding: 140px 0 60px;
+  background: var(--bg-dark);
+  border-bottom: 1px solid var(--border-subtle);
+  text-align: center;
+}
+
+.badge {
+  background: var(--primary);
+  color: #000;
+  padding: 4px 12px;
+  font-weight: 700;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+.program-title {
+  font-size: 3.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  line-height: 1.1;
+}
+
+.program-subtitle {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Info Cards Row (Date, Mode, etc.) */
+.info-cards-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: -40px auto 60px; /* Pulls it up into the hero slightly */
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+}
+
+.info-box {
+  background: #1a1a1a;
+  border: 1px solid var(--border-subtle);
+  padding: 1.5rem 2rem;
+  min-width: 200px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.info-box h3 { font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 0.5rem; }
+.info-box p { font-size: 1.2rem; font-weight: 700; color: #fff; margin: 0; }
+
+/* Layout: Main Info + Sidebar */
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 4rem;
+  padding-bottom: 100px;
+}
+
+.mt-large { margin-top: 3rem; margin-bottom: 1.5rem; }
+
+/* Styled Table */
+.table-container {
+  overflow-x: auto;
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 2rem;
+}
+
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.styled-table th, .styled-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+}
+
+.styled-table th {
+  background: #1a1a1a;
+  color: #fff;
+  font-weight: 600;
+}
+
+.styled-table tr:last-child td { border-bottom: none; }
+
+/* Subject Grid */
+.subject-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+}
+
+.subject-card {
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  padding: 1.5rem;
+  text-align: center;
+}
+
+.subject-card h4 { font-size: 1rem; color: #fff; margin-bottom: 0.2rem; }
+.subject-card p { font-size: 0.8rem; color: var(--text-muted); margin: 0; }
+
+/* Sidebar CTA */
+.sidebar { position: relative; }
+.cta-box {
+  background: #1a1a1a;
+  border: 1px solid var(--primary); /* Highlight border */
+  padding: 2rem;
+  position: sticky;
+  top: 100px; /* Sticks when scrolling */
+}
+
+.feature-list {
+  list-style: none;
+  margin: 1.5rem 0;
+  padding: 0;
+}
+
+.feature-list li {
+  color: var(--text-muted);
+  margin-bottom: 0.8rem;
+  font-size: 0.9rem;
+}
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+  .program-title { font-size: 2.2rem; }
+  .content-wrapper { grid-template-columns: 1fr; }
+  .info-cards-row { margin-top: 2rem; }
+  .sidebar { order: -1; /* Puts CTA at top on mobile */ margin-bottom: 2rem; }
+  .cta-box { position: static; }
+}
+
+/* --- SELECTIONS SECTION --- */
+.selections-section {
+  padding: 80px 0;
+  background: #000; /* Distinct section background */
+  border-top: 1px solid var(--border-subtle);
+}
+
+.selection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.student-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 2rem 1rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.student-card:hover {
+  transform: translateY(-5px);
+  border-color: #ffffff;
+}
+
+.student-img {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1.5rem;
+}
+
+.student-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-subtle);
+  padding: 4px; /* Creates a gap between image and border */
+}
+
+/* Rank Badge (The little tag on the photo) */
+.rank-badge {
+  position: absolute;
+  bottom: 0;
+  right: -10px;
+  background: #fff;
+  color: #000;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 4px 10px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.student-info h3 {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+
+.student-info p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.batch-year {
+  display: inline-block;
+  font-size: 0.75rem;
+  color: #fff;
+  background: #1a1a1a;
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1px solid var(--border-subtle);
+}
+
+/* --- HOSTEL PAGE STYLES --- */
+
+/* Amenities Grid */
+.amenities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.amenity-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.amenity-card:hover {
+  transform: translateY(-5px);
+  border-color: #fff;
+}
+
+.amenity-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.amenity-card h3 {
+  font-size: 1.2rem;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.amenity-card p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Schedule Section (Split Layout) */
+.schedule-section {
+  padding: 80px 0;
+  background: #000;
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.schedule-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.routine-list {
+  list-style: none;
+  margin-top: 2rem;
+  padding: 0;
+}
+
+.routine-list li {
+  padding: 1rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: var(--text-muted);
+  font-size: 1rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.routine-list li strong {
+  color: var(--primary); /* White/Gold */
+  min-width: 90px;
+}
+
+.schedule-image img {
+  width: 100%;
+  border-radius: 0;
+  filter: grayscale(100%);
+  border: 1px solid var(--border-subtle);
+  transition: 0.5s;
+}
+
+.schedule-image:hover img {
+  filter: grayscale(0%);
+}
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+  .schedule-wrapper { grid-template-columns: 1fr; }
+  .amenity-card { text-align: center; }
+}
+/* --- SPLIT CTA SECTION --- */
+.split-cta-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 50% - 50% split */
+  border-top: 1px solid var(--border-subtle);
+  border-bottom: 1px solid var(--border-subtle);
+  overflow: hidden;
+}
+
+.split-item {
+  position: relative;
+  height: 450px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  
+  /* Shared Background Properties */
+  background-size: cover;
+  background-position: center;
+}
+
+/* 1. Scholarship Side (Now has an image!) */
+.scholarship-box {
+  background-image: url('./images/scholarship-bg.jpg'); /* Make sure to add this image! */
+  /* border-right: 1px solid black; */
+}
+
+/* 2. Hostel Side */
+.hostel-box {
+  background-image: url('./images/hostel-bg.jpg');
+  /* border-left: 1px solid black; */
+}
+
+/* DARK OVERLAY (Applies to BOTH now) */
+.scholarship-box::before,
+.hostel-box::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.85); /* Dark overlay */
+  transition: 0.5s;
+}
+
+/* HOVER EFFECT (Brightens BOTH on hover) */
+.split-item:hover::before {
+  background: rgba(0, 0, 0, 0.6); /* Becomes lighter to reveal image */
+}
+
+.split-item:hover .cta-link {
+  color: #fff;
+  border-color: #fff;
+}
+
+/* Text Content Styling */
+.split-content {
+  position: relative;
+  z-index: 2;
+  max-width: 500px;
+}
+
+.split-label {
+  display: block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.split-item h2 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 1rem;
+}
+
+.split-item p {
+  color: #ccc;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+}
+
+.cta-link {
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 5px;
+  transition: 0.3s;
+  color: #fff;
+}
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+  .split-cta-section {
+    grid-template-columns: 1fr;
+  }
+  .split-item {
+    height: 350px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+} 
+
+/* --- SCHOLARSHIP PAGE STYLES --- */
+
+/* 1. Simple Title Header */
+.simple-header {
+  padding: 150px 0 80px; /* Top padding clears the fixed navbar */
+  text-align: center;
+  background: var(--bg-dark);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* 2. Content Layout */
+.scholarship-details {
+  padding: 80px 0;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 4rem;
+}
+
+.content-list {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.content-list li {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.content-list li::before {
+  content: "✓";
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* Sidebar Boxes */
+.eligibility-box, .notice-box {
+  background: var(--bg-card);
+  padding: 2rem;
+  border: 1px solid var(--border-subtle);
+  margin-bottom: 2rem;
+}
+
+.class-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.class-badges span {
+  background: #000;
+  border: 1px solid #333;
+  padding: 5px 10px;
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+/* Specific Style for the Warning Notice */
+.notice-box {
+  border: 1px solid #b91c1c; /* Dark Red Border */
+  background: rgba(185, 28, 28, 0.1); /* Slight Red Tint */
+}
+
+.notice-box h3 { color: #f87171; font-size: 1.1rem; margin-bottom: 0.5rem; }
+.notice-box p { color: #fca5a5; font-size: 0.9rem; }
+
+/* 3. Criteria Grid */
+.criteria-section {
+  padding: 80px 0;
+  background: #0f0f0f;
+}
+
+.criteria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.criteria-card {
+  background: #000;
+  padding: 2rem;
+  border: 1px solid var(--border-subtle);
+  transition: 0.3s;
+}
+
+.criteria-card:hover { border-color: #fff; transform: translateY(-5px); }
+.criteria-card .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
+.criteria-card h3 { font-size: 1.2rem; color: #fff; margin-bottom: 1rem; }
+.criteria-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.6; }
+
+/* 4. 5-Photo Grid Layout */
+.exam-gallery { padding: 80px 0; }
+
+.photo-grid-5 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 200px); /* Fixed height rows */
+  gap: 1rem;
+}
+
+.grid-item {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.grid-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: 0.5s;
+}
+
+.grid-item:hover img { filter: grayscale(0%); transform: scale(1.05); }
+
+/* The First item spans 2 rows and 2 columns (Big Square) */
+.main-photo {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+  .details-grid { grid-template-columns: 1fr; }
+  .photo-grid-5 { display: flex; flex-direction: column; } /* Stack photos on mobile */
+  .grid-item { height: 250px; }
+}
+
+/* --- CHAMPIONS MARQUEE --- */
+.champions-marquee {
+  background: #000;
+  border-bottom: 0px solid var(--border-subtle);
+  padding: 1rem 0;
+  overflow: hidden; /* Hides the scrollbar */
+  position: relative;
+}
+
+.marquee-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--primary); /* Gold/White */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+.marquee-wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.marquee-track {
+  display: flex;
+  gap: 3rem; /* Space between cards */
+  /* The Animation: Moves left forever */
+  animation: scrollLeft 25s linear infinite;
+  width: max-content;
+}
+
+/* Pause animation when user hovers to read */
+/* .marquee-track:hover {
+  animation-play-state: paused;
+} */
+
+.champion-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: #0f0f0f;
+  padding: 10px 20px;
+  border: 1px solid #333;
+  border-radius: 50px; /* Pill shape */
+  min-width: 250px;
+}
+
+.champ-img img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  object-fit: cover;
+}
+
+.champ-info h4 {
+  font-size: 0.95rem;
+  color: #fff;
+  margin: 0;
+}
+
+.champ-info p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* The Keyframe Animation */
+@keyframes scrollLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); } /* Moves halfway (because we duplicated content) */
+}
+
+/* Mobile Tweak */
+@media (max-width: 768px) {
+  .champion-card { min-width: 200px; padding: 8px 15px; }
+  .champ-img img { width: 40px; height: 40px; }
+}
+
+/* --- FEATURED PAMPHLET STYLES --- */
+.featured-pamphlet-container {
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.pamphlet-title {
+  color: var(--primary); /* White/Gold */
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.pamphlet-wrapper {
+  width: 100%;
+  max-width: 1000px; /* Limits width on big screens so it doesn't get too tall */
+  margin: 0 auto;
+  border: 1px solid var(--border-subtle);
+  padding: 10px; /* Creates a frame effect */
+  background: #1a1a1a;
+}
+
+.pamphlet-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  /* Option A: Keep it Full Color always (Recommended for text/pamphlets) */
+  filter: none; 
+  
+  /* Option B: Use your site's B&W theme (Uncomment below to use) */
+  /* filter: grayscale(100%); transition: 0.5s; */
+}
+
+/* If using Option B, add hover effect */
+/* .pamphlet-wrapper:hover .pamphlet-img { filter: grayscale(0%); } */
+/* --- 🌈 FORCE COLOR RESTORATION --- */
+
+/* 1. Reset all Images & Videos to Natural Color */
+img, 
+video, 
+.gallery-img, 
+.about-image img, 
+.card-img-wrapper img, 
+.video-thumbnail img,
+.student-img img,
+.gallery-item img,
+.gallery-item video,
+.grid-item img,
+.schedule-image img,
+.pamphlet-img {
+  filter: none !important; /* Removes Grayscale */
+}
+
+/* 2. Fix the Map (Remove Dark Mode) */
+.map-container iframe {
+  filter: none !important;
+  opacity: 1 !important;
+  mix-blend-mode: normal !important;
+}
+
+/* 3. Fix the Logo (Remove White Filter) */
+.nav-logo {
+  filter: none !important;
+}
+
+/* 4. Updates for Hover Effects (Keep Zoom, Remove Color Change) */
+/* Since images are already colored, we don't need the transition from B&W */
+.course-card-image:hover .card-img-wrapper img,
+.gallery-img:hover,
+.gallery-item:hover img,
+.gallery-item:hover video,
+.grid-item:hover img {
+  filter: none !important; /* Ensure it stays colored on hover */
+  /* We keep the transform/scale (zoom) effects defined earlier */
+}
+
+/* 5. Map Container Background (Optional) */
+/* Since the map is colorful now, we don't need the dark background behind it */
+.map-container {
+  background: transparent !important;
+}
